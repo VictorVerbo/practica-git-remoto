@@ -1,0 +1,1478 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="media/faviconiisc.png" />
+  <title>IISC | Soporte técnico, redes y soluciones digitales</title>
+  <meta name="description"
+    content="IISC ofrece soporte técnico, mantenimiento, redes, CCTV y soluciones digitales para hogares y negocios." />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #121b2d;
+      --card: #16233b;
+      --line: rgba(255, 255, 255, .08);
+      --text: #eef4ff;
+      --muted: #a8b4cb;
+      --primary: #3b82f6;
+      --primary-2: #22c55e;
+      --accent: #f59e0b;
+      --shadow: 0 18px 45px rgba(0, 0, 0, .22);
+      --radius: 20px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, .18), transparent 28%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, .14), transparent 24%),
+        linear-gradient(180deg, #08101d 0%, #0d1525 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      background: rgba(8, 14, 25, .72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      align-self: stretch;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .4px;
+      min-width: 0;
+    }
+
+    .brand>div:last-child {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .brand>div:last-child>div {
+      display: none;
+    }
+
+    .brand img {
+      width: auto;
+      height: 100%;
+      max-width: min(240px, 42vw);
+      object-fit: contain;
+      padding: 8px 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: var(--shadow);
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .96rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: .2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color: white;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, .28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, .03);
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+
+    .mobile-commercial {
+      display: none;
+      padding: 14px 0 4px;
+    }
+
+    .mobile-commercial video {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .24);
+      background: #000;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, .12);
+      color: #dbeafe;
+      border: 1px solid rgba(59, 130, 246, .18);
+      font-size: .92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      line-height: 1.03;
+      letter-spacing: -.04em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.7;
+      max-width: 62ch;
+      margin: 0 0 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: auto;
+    }
+
+    .stat-card {
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+    }
+
+    .stat-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.15);
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .stat-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+
+    .stat-card span {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .hero-panel {
+      padding: 26px;
+      min-height: 420px;
+      display: flex;
+      align-items: stretch;
+      background:
+        linear-gradient(180deg, rgba(59, 130, 246, .18), rgba(255, 255, 255, .03)),
+        linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .02));
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.25), transparent 42%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .hero-panel:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+    }
+
+    .hero-panel:hover::before {
+      opacity: 1;
+    }
+
+    .hero-panel img {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .desktop-commercial-section {
+      padding-top: 0;
+      padding-bottom: 28px;
+    }
+
+    .desktop-commercial-wrap {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .24);
+      background: #000;
+    }
+
+    .desktop-commercial-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .panel-badge {
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, .12);
+      border: 1px solid rgba(34, 197, 94, .2);
+      color: #dcfce7;
+      font-weight: 700;
+      font-size: .88rem;
+    }
+
+    .panel-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .panel-item {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .panel-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(59, 130, 246, .14);
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 36px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 60ch;
+      line-height: 1.7;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 22px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.12);
+      transform: translateY(-2px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.12), transparent 34%);
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      margin-bottom: 14px;
+      font-size: 1.35rem;
+    }
+
+    .service-card h3,
+    .about-card h3,
+    .contact-card h3,
+    .testimonial h3 {
+      margin: 0 0 10px;
+      font-size: 1.14rem;
+    }
+
+    .service-card p,
+    .about-card p,
+    .contact-card p,
+    .testimonial p,
+    .footer p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .about-card {
+      padding: 24px;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 10px;
+      color: var(--muted);
+      align-items: start;
+    }
+
+    .list-item span:first-child {
+      color: var(--primary-2);
+      font-weight: 900;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 18px;
+    }
+
+    .contact-card {
+      padding: 24px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: var(--muted);
+    }
+
+    .contact-item i {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .05);
+      color: var(--text);
+      font-style: normal;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      background: rgba(255, 255, 255, .03);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #8ea0bf;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(59, 130, 246, .6);
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial {
+      padding: 22px;
+    }
+
+    .testimonial .name {
+      display: block;
+      margin-top: 14px;
+      color: #dbeafe;
+      font-weight: 700;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .evidence-item {
+      width: 100%;
+      padding: 0;
+      display: block;
+      margin: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .16);
+      cursor: zoom-in;
+      transition: transform .2s ease, border-color .2s ease;
+      aspect-ratio: 4 / 3;
+    }
+
+    .evidence-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(59, 130, 246, .5);
+    }
+
+    .evidence-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(5, 10, 18, .84);
+      backdrop-filter: blur(4px);
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(1100px, 94vw);
+      max-height: 88vh;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .cta {
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(59, 130, 246, .18), rgba(34, 197, 94, .14));
+    }
+
+    .footer {
+      padding: 26px 0 40px;
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .mini-links {
+      display: flex;
+      gap: 16px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      color: white;
+      background: linear-gradient(135deg, #25d366, #18a34a);
+      box-shadow: 0 16px 35px rgba(37, 211, 102, .34);
+    }
+
+    .chat-widget {
+      position: fixed;
+      right: 18px;
+      bottom: 88px;
+      z-index: 60;
+      width: min(360px, calc(100vw - 24px));
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .chat-toggle {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font: inherit;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, .35);
+    }
+
+    .chat-panel {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(9, 16, 28, .96);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, .35);
+      overflow: hidden;
+      display: none;
+    }
+
+    .chat-widget.open .chat-panel {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 390px;
+      max-height: min(520px, 72vh);
+    }
+
+    .chat-head {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .chat-head strong {
+      display: block;
+      font-size: .98rem;
+    }
+
+    .chat-head span {
+      display: block;
+      color: var(--muted);
+      font-size: .84rem;
+      margin-top: 2px;
+    }
+
+    .chat-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .15);
+      background: rgba(255, 255, 255, .03);
+      color: var(--text);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      padding: 14px;
+      overflow: auto;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .chat-msg {
+      max-width: 88%;
+      border-radius: 14px;
+      padding: 10px 12px;
+      line-height: 1.45;
+      font-size: .92rem;
+    }
+
+    .chat-msg.bot {
+      background: rgba(59, 130, 246, .16);
+      border: 1px solid rgba(59, 130, 246, .28);
+      color: #e6f0ff;
+      justify-self: start;
+    }
+
+    .chat-msg.user {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      justify-self: end;
+    }
+
+    .chat-form {
+      padding: 12px;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .chat-form input {
+      padding: 12px 13px;
+      border-radius: 12px;
+    }
+
+    .chat-send {
+      border: 0;
+      border-radius: 12px;
+      padding: 0 14px;
+      font: inherit;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      cursor: pointer;
+    }
+
+    @media (max-width: 980px) {
+
+      .hero-grid,
+      .about,
+      .contact,
+      .cta,
+      .grid-3,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .row-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
+      .hero-panel {
+        min-height: auto;
+      }
+
+      .section-head {
+        align-items: start;
+      }
+
+      .btn {
+        padding: 13px 18px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(var(--max), calc(100% - 22px));
+      }
+
+      .nav {
+        min-height: 68px;
+        gap: 10px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+      }
+
+      .brand img {
+        max-width: min(180px, 44vw);
+      }
+
+      .nav>.btn {
+        padding: 10px 14px;
+        font-size: .92rem;
+      }
+
+      .hero {
+        padding: 34px 0 22px;
+      }
+
+      .mobile-commercial {
+        display: block;
+      }
+
+      .desktop-commercial-section {
+        display: none;
+      }
+
+      .eyebrow {
+        font-size: .82rem;
+        padding: 8px 12px;
+        gap: 8px;
+      }
+
+      .hero p,
+      .section-head p,
+      .service-card p,
+      .about-card p,
+      .contact-card p,
+      .testimonial p {
+        font-size: .98rem;
+        line-height: 1.6;
+      }
+
+      .stat-card,
+      .service-card,
+      .about-card,
+      .contact-card,
+      .testimonial {
+        padding: 18px;
+      }
+
+      .panel-item {
+        grid-template-columns: 40px 1fr;
+        padding: 12px;
+      }
+
+      .panel-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 1rem;
+      }
+
+      .cta {
+        padding: 22px;
+        gap: 14px;
+      }
+
+      .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        right: 14px;
+        bottom: 14px;
+      }
+
+      .chat-widget {
+        right: 12px;
+        bottom: 74px;
+      }
+
+      .evidence-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      h1 {
+        font-size: clamp(1.75rem, 10vw, 2.4rem);
+      }
+
+      section {
+        padding: 28px 0;
+      }
+
+      .hero-actions,
+      .hero-actions .btn,
+      .cta .btn {
+        width: 100%;
+      }
+
+      .hero-actions .btn,
+      .cta .btn {
+        justify-content: center;
+      }
+
+      .contact-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .contact-item i {
+        width: 36px;
+        height: 36px;
+      }
+
+      .mini-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .whatsapp-float {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+      }
+
+      .chat-widget {
+        right: 8px;
+        bottom: 66px;
+        width: calc(100vw - 16px);
+      }
+
+      .chat-widget.open .chat-panel {
+        min-height: 330px;
+        max-height: 62vh;
+      }
+
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <img src="/media/logoBlanco.png" alt="Logo IISC">
+      </a>
+
+      <nav class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#evidencias">Evidencias</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="btn btn-primary" href="https://wa.me/522411117197" target="_blank"
+        rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </header>
+<<<<<<< HEAD
+ <h2>Menu chiquito</h2>
+=======
+ <h2>Menu</h2>
+>>>>>>> feature/titulo
+ <ul>
+  <li>Hamburguesa</li>
+  <li>Pizza</li>
+  <li>Ensalada</li>
+ </ul>
+  <main id="inicio">
+
+    <section class="mobile-commercial" aria-label="Video comercial en m?vil">
+      <div class="container">
+        <video autoplay muted playsinline controls preload="metadata">
+          <source src="/media/comercial.mp4" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+      </div>
+    </section>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">🏠 Domótica, CCTV, redes y soluciones tecnológicas</div>
+          <h1>Convierte tu hogar o negocio en un espacio inteligente, seguro y eficiente.</h1>
+          <p>
+            En IISC integramos automatización, cámaras de seguridad, redes y soporte técnico para que tengas control,
+            protección y conectividad desde tu celular.
+            No solo resolvemos problemas, mejoramos la forma en la que usas la tecnología.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Solicitar atención</a>
+            <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat-card">
+              <div class="stat-icon">📱</div>
+              <strong>Control desde tu celular</strong>
+              <span>Accede y gestiona tu sistema estés donde estés.</span>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">🔒</div>
+              <strong>Protección 24/7</strong>
+              <span>Monitoreo constante con cámaras y alertas en tiempo real.</span>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">⚡</div>
+              <strong>Todo conectado</strong>
+              <span>Integramos redes, dispositivos y automatización en un solo ecosistema.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card hero-panel">
+          <img src="/media/iisc_mascota.png" alt="">
+        </div>
+      </div>
+    </section>
+    
+    <section id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Soluciones que realmente hacen la diferencia</h2>
+            <p>No solo instalamos o reparamos. Mejoramos tu seguridad, conectividad y control para que tu tecnología
+              trabaje para ti.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+
+          <article class="card service-card">
+            <div class="service-icon">🛠️</div>
+            <h3>Equipos siempre funcionando</h3>
+            <p>
+              Olvídate de equipos lentos o fallando. Dejamos tus computadoras optimizadas, limpias y listas para
+              trabajar sin interrupciones.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="service-icon">🔒</div>
+            <h3>Seguridad que sí protege</h3>
+            <p>
+              Instalamos cámaras y sistemas de vigilancia para que tengas control y tranquilidad en todo momento, desde
+              cualquier lugar.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="service-icon">📡</div>
+            <h3>Internet rápido y estable</h3>
+            <p>
+              Eliminamos zonas sin señal y problemas de conexión. Tu red funcionando como debe, sin caídas ni
+              frustraciones.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="service-icon">🏠</div>
+            <h3>Hogar y negocio inteligente</h3>
+            <p>
+              Automatizamos luces, dispositivos y sistemas para que tengas control total desde tu celular y mayor
+              comodidad en tu día a día.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Presencia digital profesional</h3>
+            <p>
+              Creamos páginas web que realmente convierten visitas en clientes, con diseño moderno y contacto directo.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Soluciones a tu medida</h3>
+            <p>
+              Analizamos tu caso y te proponemos la mejor solución, combinando tecnología, automatización y soporte
+              continuo.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="container about">
+        <div class="card about-card">
+          <h3>Sobre IISC</h3>
+          <p>
+            IISC nace para ofrecer soluciones tecnológicas claras, útiles y bien ejecutadas. La idea no es solo reparar
+            equipos,
+            sino ayudarte a tener una base tecnológica funcional para trabajar mejor y crecer.
+          </p>
+          <div class="list">
+            <div class="list-item"><span>✓</span><span>Atención cercana y profesional.</span></div>
+            <div class="list-item"><span>✓</span><span>Soluciones para hogar, negocio y emprendedores.</span></div>
+            <div class="list-item"><span>✓</span><span>Base preparada para escalar a CRM, presupuestos y citas.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card about-card">
+          <h3>¿Por qué elegirnos?</h3>
+          <p>
+            Porque una página bonita no basta. Necesitas claridad, confianza y una forma simple de convertir visitantes
+            en clientes.
+            Esta estructura está hecha para vender, ordenar y escalar.
+          </p>
+          <div class="list">
+            <div class="list-item"><span>✓</span><span>Diseño limpio y adaptable a celular.</span></div>
+            <div class="list-item"><span>✓</span><span>Botones de contacto directos.</span></div>
+            <div class="list-item"><span>✓</span><span>Lista para migrarse luego a Vue por componentes.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Confianza que se construye</h2>
+            </p>
+          </div>
+        </div>
+
+        <div class="testimonials">
+          <article class="card testimonial">
+            <h3>Atención rápida</h3>
+            <p>Resolvieron el problema de conectividad y dejaron funcionando todo sin complicaciones.</p>
+            <span class="name">Cliente local</span>
+          </article>
+
+          <article class="card testimonial">
+            <h3>Muy buena explicación</h3>
+            <p>No solo arreglaron el equipo, también explicaron qué estaba pasando y cómo evitarlo después.</p>
+            <span class="name">Negocio pequeño</span>
+          </article>
+
+          <article class="card testimonial">
+            <h3>Imagen profesional</h3>
+            <p>La página y el contacto por WhatsApp ayudaron a que el negocio se viera mucho más serio.</p>
+            <span class="name">Emprendedor</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidencias">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Evidencias de trabajo</h2>
+            <p>Galería real de instalaciones, soporte y resultados. Haz click para ver cada imagen en grande.</p>
+          </div>
+        </div>
+
+        <div class="evidence-grid" id="evidenceGrid"></div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container contact">
+        <div class="card contact-card">
+          <h3>Contáctanos</h3>
+          <p>Listo para soporte, instalación, diagnóstico o desarrollo de tu presencia digital.</p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <i>📍</i>
+              <div>
+                <strong style="display:block;color:var(--text);margin-bottom:4px;">Dirección</strong>
+                Cultura Azteca #104, Mirador de las Culturas, Aguascalientes, Ags.
+              </div>
+            </div>
+            <div class="contact-item">
+              <i>📱</i>
+              <div>
+                <strong style="display:block;color:var(--text);margin-bottom:4px;">WhatsApp</strong>
+                <a href="https://wa.me/522411117197" target="_blank" rel="noopener noreferrer">241-111-7197</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i>✉️</i>
+              <div>
+                <strong style="display:block;color:var(--text);margin-bottom:4px;">Correo</strong>
+                <a href="mailto:iisc.soporte@gmail.com">iisc.soporte@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i>🕒</i>
+              <div>
+                <strong style="display:block;color:var(--text);margin-bottom:4px;">Horario</strong>
+                Lunes a sábado · Horario por confirmar
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card contact-card">
+          <h3>Solicita información</h3>
+          <p style="margin-bottom:16px;">Por ahora este formulario es visual. Después lo conectamos a backend para
+            guardar solicitudes reales.</p>
+
+          <form>
+            <div class="row-2">
+              <input type="text" placeholder="Tu nombre" />
+              <input type="tel" placeholder="Tu teléfono" />
+            </div>
+            <div class="row-2">
+              <input type="email" placeholder="Tu correo" />
+              <select>
+                <option>Selecciona un servicio</option>
+                <option>Soporte técnico</option>
+                <option>Redes e internet</option>
+                <option>CCTV</option>
+                <option>Página web</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <textarea placeholder="Cuéntanos qué necesitas"></textarea>
+            <button type="button" class="btn btn-primary">Enviar solicitud</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card cta">
+          <div>
+            <h2 style="margin:0 0 10px;">Haz que tu negocio se vea serio desde hoy.</h2>
+            <p style="margin:0;color:var(--muted);line-height:1.7;">Esta base ya te sirve para presencia digital. Luego
+              la escalamos a cotizaciones, citas y administración.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/522411117197" target="_blank" rel="noopener noreferrer">Hablar
+            por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>IISC</strong>
+        <p>Soporte técnico, redes, seguridad y soluciones digitales.</p>
+      </div>
+      <div class="mini-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#evidencias">Evidencias</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/522411117197" target="_blank" rel="noopener noreferrer"
+    aria-label="WhatsApp">✆</a>
+
+  <section class="chat-widget" id="chatWidget" aria-label="Asistente automatico">
+    <button class="chat-toggle" id="chatToggle" type="button" aria-expanded="false">Asistente IA</button>
+    <div class="chat-panel" id="chatPanel" aria-hidden="true">
+      <div class="chat-head">
+        <div>
+          <strong>IISC Assistant</strong>
+          <span>Respuestas automaticas rapidas</span>
+        </div>
+        <button class="chat-close" id="chatClose" type="button" aria-label="Cerrar chat">x</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg bot">Hola, soy el asistente de IISC. Pregunta por servicios, costos o contacto.</div>
+      </div>
+      <form class="chat-form" id="chatForm">
+        <input id="chatInput" type="text" placeholder="Escribe tu pregunta..." autocomplete="off" />
+        <button class="chat-send" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+    <img id="lightboxImg" alt="Evidencia ampliada">
+  </div>
+
+  <script>
+    const evidenceGrid = document.getElementById('evidenceGrid');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const chatWidget = document.getElementById('chatWidget');
+    const chatPanel = document.getElementById('chatPanel');
+    const chatToggle = document.getElementById('chatToggle');
+    const chatClose = document.getElementById('chatClose');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+
+    // Carga automática: media/evidencias/evidencia (1).jpg ... evidencia (20).jpg
+    for (let i = 1; i <= 20; i++) {
+      const src = `/media/evidencias/evidencia (${i}).jpg`;
+      const button = document.createElement('button');
+      button.className = 'evidence-item';
+      button.type = 'button';
+      button.setAttribute('aria-label', `Abrir evidencia ${i}`);
+      button.innerHTML = `<img loading="lazy" src="${src}" alt="Evidencia ${i}">`;
+      button.addEventListener('click', () => {
+        lightboxImg.src = src;
+        lightboxImg.alt = `Evidencia ${i} ampliada`;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+      evidenceGrid.appendChild(button);
+    }
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.removeAttribute('src');
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+
+    const addChatMessage = (text, from = 'bot') => {
+      const msg = document.createElement('div');
+      msg.className = `chat-msg ${from}`;
+      msg.textContent = text;
+      chatMessages.appendChild(msg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    const getAutoReply = (value) => {
+      const q = value.toLowerCase();
+      if (q.includes('precio') || q.includes('costo') || q.includes('cotiza')) {
+        return 'Para darte precio exacto necesitamos saber el servicio y ubicacion. Puedes pedir cotizacion directa por WhatsApp: 241-111-7197.';
+      }
+      if (q.includes('horario') || q.includes('atienden') || q.includes('abren')) {
+        return 'Atendemos de lunes a sabado. Si me dices que necesitas, te propongo el mejor horario de atencion.';
+      }
+      if (q.includes('servicio') || q.includes('hacen') || q.includes('instalan')) {
+        return 'Manejamos soporte tecnico, redes/internet, CCTV, domotica y paginas web. Si quieres, te recomiendo una opcion para tu caso.';
+      }
+      if (q.includes('whatsapp') || q.includes('contacto') || q.includes('tel')) {
+        return 'Puedes escribirnos por WhatsApp al 241-111-7197 o usar la seccion de contacto de esta pagina.';
+      }
+      if (q.includes('gracias')) {
+        return 'Con gusto. Si quieres, te ayudo a elegir el servicio segun tu problema.';
+      }
+      return 'Puedo ayudarte con servicios, costos aproximados, horarios y contacto. Si buscas atencion directa, usa el boton de WhatsApp.';
+    };
+
+    const openChat = () => {
+      chatWidget.classList.add('open');
+      chatToggle.setAttribute('aria-expanded', 'true');
+      chatPanel.setAttribute('aria-hidden', 'false');
+      chatInput.focus();
+    };
+
+    const closeChat = () => {
+      chatWidget.classList.remove('open');
+      chatToggle.setAttribute('aria-expanded', 'false');
+      chatPanel.setAttribute('aria-hidden', 'true');
+    };
+
+    chatToggle.addEventListener('click', () => {
+      if (chatWidget.classList.contains('open')) {
+        closeChat();
+      } else {
+        openChat();
+      }
+    });
+
+    chatClose.addEventListener('click', closeChat);
+
+    chatForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+      addChatMessage(text, 'user');
+      chatInput.value = '';
+      window.setTimeout(() => addChatMessage(getAutoReply(text), 'bot'), 350);
+    });
+  </script>
+</body>
+
+</html>
+
+
+
